@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MainPage from './MainPage';
 import Map from './Map';
 
-class Router extends React.Component{
+class Route extends React.Component{
     render(){
         const { information } = this.props;
         return(
@@ -21,4 +21,4 @@ class Router extends React.Component{
     }
 }
 
-export default Router;
+export default Route;
