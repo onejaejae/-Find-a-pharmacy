@@ -141,89 +141,120 @@ class MapCreate extends React.Component {
       }
       
       
-      
-
       console.log(element.tel +"  "+ element.title);
 
       
-      var pharmacy_wrap = document.createElement('div');
-      pharmacy_wrap.className = "pharmacy_wrap";
+
+
+     var pharmacy_wrap = document.createElement('div');
+      pharmacy_wrap.className = "pharmacy-wrap";
 
       var modal_header = document.createElement('div');
       modal_header.className = "modal_header";
-      
       pharmacy_wrap.appendChild(modal_header);
 
       var close_wrap = document.createElement('p');
       close_wrap.className = "close_wrap";
       close_wrap.style.margin = "0";
-
       modal_header.appendChild(close_wrap);
+
       close_wrap.innerHTML = `${element.title}`;
-
-      var i = document.createElement('i');
-      i.classList.add("fas", "fa-times");
-      i.style.fontSize = "50px"
-      i.style.color = "#64855C";
-      modal_header.appendChild(i);
-
 
       var close = document.createElement('div');
       close.className = "close";
       modal_header.appendChild(close);
 
+      var i = document.createElement('i');
+      i.classList.add("fas", "fa-times");
+      i.style.fontSize = "50px";
+      i.style.color = "#64855C";
+      close.appendChild(i);
+
       var modal_body = document.createElement('div');
       modal_body.className = "modal_body";
       pharmacy_wrap.appendChild(modal_body);
 
+      var modal_addrs_container = document.createElement('div');
+      modal_addrs_container.className = "modal_addrs_container";
+      modal_body.appendChild(modal_addrs_container);
+
       var modal_addr = document.createElement('div');
       modal_addr.className = "modal_addr";
+      modal_addrs_container.appendChild(modal_addr);
+
       modal_addr.innerHTML = "주소";
-      modal_body.appendChild(modal_addr);
 
-      var modal_addr1 = document.createElement('div');
+      var modal_addrs_contents = document.createElement('div');
+      modal_addrs_contents.className = "modal_addrs_contents";
+      modal_addrs_container.appendChild(modal_addrs_contents);
+
+      var doro_container = document.createElement('div');
+      doro_container.className = "doro_container";
+      modal_addrs_contents.appendChild(doro_container);
+
+      var modal_addr_doro = document.createElement('p');
+      modal_addr_doro.className = "modal_addr_doro";
+      doro_container.appendChild(modal_addr_doro);
+
+      modal_addr_doro.innerHTML = "(도로명)";
+
+      var modal_addr1 = document.createElement('p');
       modal_addr1.className = "modal_addr1";
-      modal_addr1.innerHTML = "(도로명)";
-      modal_body.appendChild(modal_addr1);
+      doro_container.appendChild(modal_addr1);
 
-      var roadAdress = document.createElement('p');
-      roadAdress.className = "roadAdress";
-      modal_addr1.appendChild(roadAdress);
-      roadAdress.innerHTML = `${element.roadAdress ? element.roadAdress : "도로명 주소 정보가 없습니다"}`;
+      modal_addr1.innerHTML = `${element.roadAdress ? element.roadAdress : "-"}`;
 
-      var br = document.createElement('br');
-      modal_body.appendChild(br);
+      var jibeon_container = document.createElement('div');
+      jibeon_container.className = "jibeon_container";
+      modal_addrs_contents.appendChild(jibeon_container);
 
-      var modal_addr2 = document.createElement('div');
+      var modal_addr_jibeon = document.createElement('p');
+      modal_addr_jibeon.className = "modal_addr_jibeon";
+      jibeon_container.appendChild(modal_addr_jibeon);
+
+      modal_addr_jibeon.innerHTML = "(지번)";
+
+      var modal_addr2 = document.createElement('p');
       modal_addr2.className = "modal_addr2";
-      modal_addr2.innerHTML = "(지번)";
-      modal_body.appendChild(modal_addr2);
+      jibeon_container.appendChild(modal_addr2);
 
-      var adress = document.createElement('p');
-      adress.className = "adress";
-      modal_addr2.appendChild(adress);
-      adress.innerHTML = `${element.adress ? element.adress : "주소 정보가 없습니다."}`;
+      modal_addr2.innerHTML = `${element.adress ? element.adress : "-"}`;
 
+      var modal_ph_container = document.createElement('div');
+      modal_ph_container.className = 'modal_ph_container';
+      modal_body.appendChild(modal_ph_container);
 
-      var modal_ph = document.createElement('p');
+      var modal_ph = document.createElement('div');
       modal_ph.className = "modal_ph";
-      modal_ph.innerHTML = "연락처";
-      modal_body.appendChild(modal_ph);
+      modal_ph_container.appendChild(modal_ph);
 
-      var num = document.createElement('span');
-      num.className = "num";
-      modal_ph.appendChild(num);
-      num.innerHTML = `${element.tel ? element.tel : "전화번호 정보가 없습니다."}`;
+      modal_ph.innerHTML = "연락처";
+
+      var num1 = document.createElement('div');
+      num1.className = "num1";
+      modal_ph_container.appendChild(num1);
+
+      num1.innerHTML = `${element.tel ? element.tel : "-"}`;
 
       var modal_footer = document.createElement('div');
       modal_footer.className = "modal_footer";
+      pharmacy_wrap.appendChild(modal_footer);
 
-      var modal_p = document.createElement('p');
+      var modal_p = document.createElement('div');
+      modal_p.className = "modal_p";
       modal_footer.appendChild(modal_p);
-      modal_p.innerHTML = "전화로 약국 별 취급 의약품을 확인 후 방문하시길 바랍니다."
 
       var i2 = document.createElement('i');
       i2.classList.add("fas", "fa-exclamation-triangle");
+      i2.style.fontSize = "18px";
+      i2.style.color = "gray";
+      modal_p.appendChild(i2);
+
+      var modal_p_inner = document.createElement('span');
+      modal_p_inner.className = "modal_p_inner";
+      modal_p.appendChild(modal_p_inner);
+      modal_p_inner.innerHTML = "전화로 약국 별 취급 의약품을 확인 후 방문하시길 바랍니다.";
+
 
 
 
