@@ -171,7 +171,6 @@ class MapCreate extends React.Component {
       var close = document.createElement('div');
       close.className = "close";
       modal_header.appendChild(close);
-     
 
       var modal_body = document.createElement('div');
       modal_body.className = "modal_body";
