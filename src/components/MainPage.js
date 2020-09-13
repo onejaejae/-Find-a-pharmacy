@@ -20,7 +20,7 @@ class Main extends React.Component {
               <div className="check">
                 <p className="province">경기도</p>
                 <DropdownButton id="dropdown-basic-button" title="선택">
-                  {information.map((data) => // 
+                  {information.map((data) => // a 태그를 쓰게 될 경우 a 태그의 기본적인 속성때문에 새로 렌더링이 되기 때문에, Link를 써주어서 새로 렌더링되는 것을 막아주어야 한다.
                     <Link to = {`maps/${data.id}`}> 
                       <Dropdown.Item key={data.id} href={data.id}>
                         {data.name}
