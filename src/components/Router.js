@@ -1,13 +1,13 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch} from 'react-router-dom';
+import { HashRouter, Route, Switch} from 'react-router-dom';
 import MainPage from './MainPage';
 import Map from './Map';
 
-class Routers extends React.Component{
+class Router extends React.Component{
     render(){
         const { information } = this.props;
         return(
-            <Router>
+            <HashRouter>
                 <Switch>
                 <Route 
                     exact path="/" 
@@ -16,9 +16,9 @@ class Routers extends React.Component{
                     path="/maps/:id" 
                     render={(props) => <Map information={information}  {...props} />}/>     
                 </Switch>
-            </Router>
+            </HashRouter>
         )
     }
 }
 
-export default Routers;
+export default Router;
