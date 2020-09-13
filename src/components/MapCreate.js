@@ -20,42 +20,130 @@ class MapCreate extends React.Component {
       });
 
       
-      // if (element.tel != null && element.tel.length === 7) { //1231234
-      //   if (element.adress != null) {
-      //     if (element.adress.indexOf("부천") > 0) {
-      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-      //       element.tel = "032-" + element.tel;
-      //     }
-      //     else if (element.adress.indexOf("광명") > 0 || element.adress.indexOf("과천") > 0) {
-      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-      //       element.tel = "02-" + element.tel;
-      //     }
-      //     else {
-      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-      //       element.tel = "031-" + element.tel;
-      //     }
-      //   }
-      //   else { }
-      // }
-      // else if (element.tel != null && (element.tel.length === 8 || element.tel.length === 9)) {//123-1234, 12341234, 1234-1234
-      //   if (element.adress != null) {
-      //     if (element.adress.indexOf("부천") > 0)
-      //       element.tel = "032-" + element.tel;
-      //     else if (element.adress.indexOf("광명") > 0 || element.roadAdress.indexOf("과천") > 0) {
-      //       element.tel = "02-" + element.tel;
-      //     }
-      //     else {
-      //       element.tel = "031-" + element.tel;
-      //     }
-      //   }
-      //   else { }
-      // }
-      // else if (element.tel != null && element.tel.length === 10) { //0311231234
-      //   if (element.adress != null) {
-      //     element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3, 6) + "-" + element.tel.slice(6);
-      //   }
-      // }
-      // else { }
+      if (element.tel != null && element.tel.length == 7 && !(element.title == "백제약국") && (element.tel.indexOf("-") < 0))  { //1231234
+        try {
+          if(element.adress != null){
+            if((element.adress.indexOf("부천") > 0)){
+              element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+              element.tel = "032-" + element.tel;
+            }
+            else if((element.adress.indexOf("광명") > 0) ||(element.adress.indexOf("과천") > 0)){
+              element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+              element.tel = "032-" + element.tel;
+            }
+            else{
+              element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+            element.tel = "031-" + element.tel;
+            }
+          }
+        }
+        catch (err) {
+          alert(err);
+        }
+      }
+      else if(element.tel != null && element.tel.length == 7 && element.title == "백제약국"){ //api 오류(031-533)
+        element.tel = null;
+      }
+      else if(element.tel != null && element.title == "열린온누리약국" && element.adress != null && element.adress.indexOf("화성")){ //api 오류
+        element.tel = null;
+      }
+      else if(element.tel != null && element.tel.length ==7 && (element.tel.indexOf("-") > 0)){
+        try {
+          if(element.adress != null){
+            if((element.adress.indexOf("부천") > 0)){
+              element.tel = "032-" + element.tel;
+            }
+            else if((element.adress.indexOf("광명") > 0) ||(element.adress.indexOf("과천") > 0)){
+              element.tel = "032-" + element.tel;
+            }
+            else{
+              element.tel = "031-" + element.tel;
+            }
+          }
+        }
+        catch (err) {
+          alert(err);
+        }
+      }
+      else if (element.tel != null && (element.tel.length == 8 || element.tel.length == 9) && !element.tel.startsWith("02")) {//123-1234, 12341234, 1234-1234
+        try {
+          if(element.adress != null){
+            if((element.adress.indexOf("부천") > 0)){
+              element.tel = "032-" + element.tel;
+            }
+            else if((element.adress.indexOf("광명") > 0) || (element.adress.indexOf("과천") > 0))
+            {
+              element.tel = "02-" + element.tel;
+            }
+            else{
+              element.tel = "031-" + element.tel;
+            }
+          }
+        }
+        catch (err) {
+          alert(err);
+        }
+      }
+      else if (element.tel != null && element.tel.length == 9 && element.tel.startsWith("02")) {
+        try {
+          if (element.adress != null) {
+            element.tel = element.tel.slice(0, 2) + "-" + element.tel.slice(2, 5) + "-" + element.tel.slice(5);
+          }
+        }
+        catch (err) {
+          alert(element.tel);
+        }
+      }
+      else if (element.tel != null && element.tel.length == 10 && !element.tel.startsWith("02")) {
+        try {
+          if (element.adress != null) {
+            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3, 6) + "-" + element.tel.slice(6);
+          }
+        }
+        catch (err) {
+          alert(element.tel);
+        }
+      }
+      else if (element.tel != null && element.tel.length == 10 && element.tel.startsWith("02")) {
+        try {
+          if (element.adress != null) {
+            element.tel = element.tel.slice(0, 2) + "-" + element.tel.slice(2, 6) + "-" + element.tel.slice(6);
+          }
+        }
+        catch (err) {
+          alert(element.tel);
+        }
+      }else if(element.tel != null && element.tel == "031-863-696"){}
+      else if (element.tel != null && element.tel.length == 11 && element.tel.startsWith("031") && (element.tel.indexOf("-") > 0)) {
+        try {   //031123-1234
+          if (element.adress != null) {
+            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+          }
+        }
+        catch (err) {
+          alert(element.tel);
+        }
+      }else if (element.tel != null && element.tel.length == 12 && element.tel.startsWith("031-")) {
+        //031-123-1234 (12)
+      }
+      else if (element.tel != null && element.tel.length == 12 && element.tel.startsWith("031")) {
+        try {   //0311234-1234
+          if (element.adress != null) {
+            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+          }
+        }
+        catch (err) {
+          alert(element.tel);
+        }
+      }
+      else if(element.tel!= null && (element.tel.indexOf("-") < 0) && element.tel.length == 11){ //03112341234
+        element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3, 7) + "-" + element.tel.slice(7);
+      }
+      
+      
+      
+
+      console.log(element.tel +"  "+ element.title);
 
       
       var pharmacy_wrap = document.createElement('div');
