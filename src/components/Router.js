@@ -13,7 +13,7 @@ class Router extends React.Component{
                     exact path="/" 
                     render={() => <MainPage information={information} />} />
                 <Route 
-                    path="/:id" 
+                    path="/maps/:id" 
                     render={(props) => <Map information={information}  {...props} />}/>     
                 </Switch>
             </BrowserRouter>

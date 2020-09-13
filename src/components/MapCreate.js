@@ -3,10 +3,6 @@ import './Modal.css'
 import './MapCreate.css'
 import {Dropdown, DropdownButton, Navbar} from "react-bootstrap";
 class MapCreate extends React.Component {
-
-  iwRemoveable;
-  iwContent;
-
   mapTypeControl = (map) => {
     var MapTypeControl = new window.kakao.maps.MapTypeControl();
     map.addControl(MapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
@@ -24,43 +20,43 @@ class MapCreate extends React.Component {
       });
 
       
-      if (element.tel != null && element.tel.length == 7) { //1231234
-        if (element.adress != null) {
-          if (element.adress.indexOf("부천") > 0) {
-            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-            element.tel = "032-" + element.tel;
-          }
-          else if (element.adress.indexOf("광명") > 0 || element.adress.indexOf("과천") > 0) {
-            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-            element.tel = "02-" + element.tel;
-          }
-          else {
-            element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
-            element.tel = "031-" + element.tel;
-          }
-        }
-        else { }
-      }
-      else if (element.tel != null && (element.tel.length == 8 || element.tel.length == 9)) {//123-1234, 12341234, 1234-1234
-        if (element.adress != null) {
-          if (element.adress.indexOf("부천") > 0)
-            element.tel = "032-" + element.tel;
-          else if (element.adress.indexOf("광명") > 0 || element.roadAdress.indexOf("과천") > 0) {
-            element.tel = "02-" + element.tel;
-          }
-          else {
-            element.tel = "031-" + element.tel;
-          }
-        }
-        else { }
-      }
-      else if (element.tel != null && element.tel.length == 10) { //0311231234
-        if (element.adress != null) {
-          element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3, 6) + "-" + element.tel.slice(6);
-        }
-      }
-      else { }
-      console.log(element.tel);
+      // if (element.tel != null && element.tel.length === 7) { //1231234
+      //   if (element.adress != null) {
+      //     if (element.adress.indexOf("부천") > 0) {
+      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+      //       element.tel = "032-" + element.tel;
+      //     }
+      //     else if (element.adress.indexOf("광명") > 0 || element.adress.indexOf("과천") > 0) {
+      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+      //       element.tel = "02-" + element.tel;
+      //     }
+      //     else {
+      //       element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3);
+      //       element.tel = "031-" + element.tel;
+      //     }
+      //   }
+      //   else { }
+      // }
+      // else if (element.tel != null && (element.tel.length === 8 || element.tel.length === 9)) {//123-1234, 12341234, 1234-1234
+      //   if (element.adress != null) {
+      //     if (element.adress.indexOf("부천") > 0)
+      //       element.tel = "032-" + element.tel;
+      //     else if (element.adress.indexOf("광명") > 0 || element.roadAdress.indexOf("과천") > 0) {
+      //       element.tel = "02-" + element.tel;
+      //     }
+      //     else {
+      //       element.tel = "031-" + element.tel;
+      //     }
+      //   }
+      //   else { }
+      // }
+      // else if (element.tel != null && element.tel.length === 10) { //0311231234
+      //   if (element.adress != null) {
+      //     element.tel = element.tel.slice(0, 3) + "-" + element.tel.slice(3, 6) + "-" + element.tel.slice(6);
+      //   }
+      // }
+      // else { }
+
       
       var pharmacy_wrap = document.createElement('div');
       pharmacy_wrap.className = "pharmacy_wrap";
@@ -166,6 +162,7 @@ class MapCreate extends React.Component {
 
   mapScript = () => {
     const { AnimalPharmacyData } = this.props;
+    console.log(AnimalPharmacyData[1].lat, AnimalPharmacyData[1].lng);
 
     let container = document.getElementById("Mymap");
 
@@ -184,10 +181,12 @@ class MapCreate extends React.Component {
     const { AnimalPharmacyData } = this.props;
 
     let bounds = new window.kakao.maps.LatLngBounds();
-
+    
 
     for (var i = 1; i < AnimalPharmacyData.length; i++) {
+      if(AnimalPharmacyData[i].lat && AnimalPharmacyData[i].lng){ // 위도, 경도가 없는 데이터가 존재하여 조건식으로 처리해주어야함
       bounds.extend(new window.kakao.maps.LatLng(AnimalPharmacyData[i].lat, AnimalPharmacyData[i].lng))
+      }
 
     }
     // 검색된 장소 위치를 기준으로 지도 범위를 재설정
@@ -213,7 +212,7 @@ class MapCreate extends React.Component {
             <p className="province">경기도</p>
             <DropdownButton id="dropdown-basic-button" title="선택">
               {information.map((data) =>
-                <Dropdown.Item href={data.id}>
+                <Dropdown.Item key={data.id}  href={data.id}>
                   {data.name}
                 </Dropdown.Item>
               )}

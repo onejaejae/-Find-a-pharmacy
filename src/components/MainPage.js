@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { DropdownButton, Dropdown} from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 class Main extends React.Component {
 
@@ -19,10 +20,12 @@ class Main extends React.Component {
               <div className="check">
                 <p className="province">경기도</p>
                 <DropdownButton id="dropdown-basic-button" title="선택">
-                  {information.map((data) =>
-                    <Dropdown.Item href={data.id}>
-                      {data.name}
-                    </Dropdown.Item>
+                  {information.map((data) => // 
+                    <Link to = {`maps/${data.id}`}> 
+                      <Dropdown.Item key={data.id} href={data.id}>
+                        {data.name}
+                      </Dropdown.Item>
+                    </Link>
                   )}
                 </DropdownButton>
                 
