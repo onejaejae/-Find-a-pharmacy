@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'MapoDPPA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoDPPA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'JSDongkang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.navbar{
+    background-color: rgba(135, 180, 124, 0.7);
+    position: fixed;
+    display: flex;
+    justify-content: space-between!important;
+}
+.navbar .name{
+    color: white;
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    padding: 0px;
+    font-family: 'MapoDPPA';
+}
+.navbar_find{
+    display: flex;
+    margin-right: 2rem;
+}
+.navbarBrand{
+    display: flex!important;
+    align-items: center!important;
+    margin-left: 2px;
+    margin-right: 0px!important;
+}
+.navbarBrand .d-inline-block{
+    width: 40px;
+    height: 40px;
+}
+#Mymap{
+    width: 97vm;
+    height: 91vh;
+}
+.province{
+    margin-left: 6rem;
+    text-align: center;
+    font-size: 20px;
+    background-color: #ffffff;
+    width: 6rem;
+    height: 37.29px;
+    border-radius: 20px;
+    margin-bottom: 0;
+    padding-top: 3px;
+    font-family: 'JSDongkang-Regular';
+}
+@media screen and (max-width: 768px){
+    .navbar{
+        flex-direction: column!important;
+        align-items: center!important;
+    }
+    .navbar_find{
+        padding: 1rem 0;
+        width: 100%;
+        justify-content: center;
+        margin-right: 0px!important;
+    }
+    /*맵 크기 조절*/
+    .navbar_find.active{
+        display: flex;
+    }
+}
+  

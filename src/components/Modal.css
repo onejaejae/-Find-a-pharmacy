@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'JSDongkang-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  padding-left: 20px;
+}
+@font-face {
+  font-family: 'Handon3gyeopsal600g';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}                    
+.modal_p{
+  font-family: 'JSDongkang-Regular';
+  font-size: 17px;
+  margin-top: 0px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: gray;
+}
+.modal_footer{
+  display: block;
+  font-size: 20px;
+}
+.modal_header{
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  font-family: 'Handon3gyeopsal600g';
+  font-size: 2.6rem;
+  padding: 1rem 0;
+  padding-left: 1rem;
+  font-weight: bold;
+  background-color: rgba(135, 180, 124, 0.7);
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between
+}
+.modal_addr, .modal_ph, .modal_addr1, .modal_addr2{
+  font-family: 'JSDongkang-Regular';
+}
+.modal_addr, .modal_ph{
+  font-size: 25px;
+  font-family: 'JSDongkang-Regular';
+  color: gray;
+}
+.modal_addr1, .modal_addr2{
+  margin-left: 2rem;
+  font-size: 23px;
+}
+.modal_ph{
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #8E8E8E;
+  border-bottom: 1px solid #8E8E8E;
+  height: 60px;
+}
+.pharmacy_wrap{
+  
+  width: 700px;
+  height: 454px;
+  left: 370px;
+  top: 319px;
+  background: #F8F8F8;
+  box-shadow: 4px 4px 10px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.modal_body{
+  margin-top: 20px;
+  padding-left: 40px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.num{
+  font-size: 23px;
+  margin-left: 20px;
+}
+.modal_addr{
+  display: inline;
+}
+.modal_addr1{
+  display: inline;
+}
+.modal_addr2{
+  margin-left: 85px;
+  display: inline;
+}
+.modal_header{
+  margin-left: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top:25px;
+  padding-bottom: 25px;
+}
+
+.close {
+  position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+} 
+
+.close:hover {cursor: pointer;}
+
+.roadAdress {
+  padding-left: 20px; 
+  display: inline;
+}
+
+.adress {
+  padding-left: 40px; 
+  display: inline;
+}
+
