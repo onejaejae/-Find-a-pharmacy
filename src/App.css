@@ -9,7 +9,6 @@
     transition-duration: 0.3s;
     transition-property: transform;
 }
-
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
@@ -27,9 +26,13 @@
     font-weight: normal;
     font-style: normal;
 }
+.part1{
+    /* background-color: rgba(213, 234, 208, 0.7); */
+    background-color:  rgba(152, 194, 142, 0.7);
+}
 .__all{
+    height: 100vh;
     font-family: 'JSDongkang-Regular';
-    background: linear-gradient(rgba(152, 194, 142, 0.7) 57%, #ffffff 43%);
 }
 .logo_title{
     display: flex;
@@ -51,12 +54,13 @@
     animation-duration: 2s; */
 }
 .desc{
+    text-align: center;
     margin-top: 1rem;
     font-size: 1.2rem;
+    color: #363636;
 }
 #dropdown-basic-button{
     margin-left: 2rem;
-    margin-right: 3rem;
     color: gray;
     background-color: #ffffff;
     border-color: #ffffff;
@@ -74,36 +78,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 7rem;
-    padding-bottom: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
     flex-wrap: wrap;
-}
-.part2{
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 7rem;
-    flex-wrap: wrap;
-    margin-top:2rem;
-    margin-bottom: 2rem;
 }
 .check{
     display: flex;
     margin-top: 3rem;
     justify-content: center;
     text-align: center;
-}
-.info{
-    display: flex;
-    justify-content: space-evenly;
-}
-.explanation{
-    text-align-last: center;
-    margin-bottom: 1rem;
-}
-.explain_img{
-    width: 13rem;
-    height: 10rem;
-    margin-bottom: 1rem;
 }
 .find{
     border-radius: 20px!important;
@@ -118,72 +101,56 @@
     margin-bottom: 0;
     padding-top: 3px;
 }
-.text{
-    font-size: 23px;
-    margin-bottom: 2rem;
-    margin-left: 30px;
-}
-
-.ko_ex{
-    display: flex;
-    align-items: center;
-}
-.num{
-    background-color: rgba(152, 194, 142, 0.7);
-    border-radius: 100%;
-    width: 2rem;
-    height: 2rem;
-    margin-right: 1rem;
-    padding-top: 4px;
-}
-.ko_ex p{
-    margin-bottom: 0px;
-}
-
-.icon{
-    color: #00823F;
-}
 
 .dropdown-menu{
     max-height: 200px;
     overflow-x: hidden;
 }
 
-@media screen and (max-width: 768px){
-    .title, .desc{
-        text-align: center;
-    }
-    .__all{
-        background:  linear-gradient(rgba(152, 194, 142, 0.7) 30%, #ffffff 70%);
-    }
-    .check{
-        padding-left: 2rem;
-        margin-bottom: 2rem;
-    }
-    .part2 .text{
-        text-align: center;
-    }
-    .info{
-        margin-bottom: 2rem;
-        display: flex;
-        flex-direction: column;
-    }
-    .info .explain_img{
-        width: 10rem;
-        height: 7rem;
-    }
-    .ko_ex{
-        display: flex;
-        justify-content: center;
-    }
-    .explanation{
-        padding-bottom: 2rem;
-    }
-    /* .logo{
-        width: 10rem;
-        height: 10rem;
-    }
-    .part1{
-        padding-top: 2rem;
-    } */
+/*part2*/
+.guideI{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #474747;
+}
+.part2_2, .part2_3{
+    padding: 4rem 0;
+}
+.part2_1{
+    padding-bottom: 4rem;
+}
+.guide{
+    font-family: 'MapoDPPA';
+    text-align: center;
+    margin: 3rem 0;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-left: 0.7rem;
+}
+.part2_2{
+    background-color: rgba(213, 234, 208, 0.7);
+}
+.guide_img{
+    width: 36rem;
+    height: 20rem;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.25));
+}
+.guide_step{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.guide_text{
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+.guide_step_text{
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.part2_1, .part2_2, .part2_3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
